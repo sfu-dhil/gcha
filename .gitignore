@@ -14,3 +14,4 @@ db.ini
 
 /files/thumbnails/*
 !/files/thumbnails/index.html
+.idea
