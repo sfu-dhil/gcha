@@ -1,8 +1,16 @@
 db.ini
 
-files
-!files/fullsize/index.html
-!files/original/index.html
-!files/square_thumbnails/index.html
-!files/theme_uploads/index.html
-!files/thumbnails/index.html
+/files/fullsize/*
+!/files/fullsize/index.html
+
+/files/original/*
+!/files/original/index.html
+
+/files/square_thumbnails/*
+!/files/square_thumbnails/index.html
+
+/files/theme_uploads/*
+!/files/theme_uploads/index.html
+
+/files/thumbnails/*
+!/files/thumbnails/index.html
