@@ -162,7 +162,9 @@ class SolrSearch_ResultsController
             'hl.snippets'         => get_option('solr_search_hl_snippets'),
             'hl.fragsize'         => get_option('solr_search_hl_fragsize'),
             'hl.maxAnalyzedChars' => get_option('solr_search_hl_max_analyzed_chars'),
-            'hl.fl'               => '*_t',
+            'hl.fl'               => 'text',
+            'hl.simple.pre'       => '<b>',
+            'hl.simple.post'      => '</b>',
             'df'                  => 'text',
         );
 
