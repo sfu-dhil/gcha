@@ -2,8 +2,14 @@
 <html class="<?php echo get_theme_option('Style Sheet'); ?>" lang="<?php echo get_html_lang(); ?>">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
-    <?php if ($description = option('description')): ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <?php if ($author = option('author')): ?>
+    <meta name="author" content="<?php echo $author; ?>" />
+    <?php endif; ?>
+    <?php if ($copyright = option('copyright')): ?>
+    <meta name="copyright" content="<?php echo $copyright; ?>" />
+    <?php endif; ?>
+   <?php if ($description = option('description')): ?>
     <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
 
@@ -55,11 +61,8 @@
          </div>
 
          <div id="mobile-nav" role="navigation" aria-label="<?php echo __('Mobile Navigation'); ?>">
-             <?php
-                  echo public_nav_main();
-             ?>
+             <?php echo public_nav_main(); ?>
          </div>
-
         <?php echo theme_header_image(); ?>
 
     <div id="content" role="main" tabindex="-1">

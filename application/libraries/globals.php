@@ -1155,10 +1155,11 @@ function head_js($includeDefaults = true)
     if ($includeDefaults) {
         $dir = 'javascripts';
         $headScript->prependScript('jQuery.noConflict();')
+                   ->prependFile(src('vendor/jquery.ui.touch-punch.js', 'javascripts'))
                    ->prependScript('window.jQuery.ui || document.write(' . js_escape(js_tag('vendor/jquery-ui')) . ')')
-                   ->prependFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
+                   ->prependFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
                    ->prependScript('window.jQuery || document.write(' . js_escape(js_tag('vendor/jquery')) . ')')
-                   ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+                   ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js');
     }
     return $headScript;
 }
@@ -1486,7 +1487,7 @@ function tag_attributes($attributes)
         if (preg_match('/[^A-Za-z0-9_:.-]/', $key)) {
             continue;
         }
-        if (is_string($attribute)) {
+        if (is_string($attribute) || is_int($attribute) || is_float($attribute)) {
             $attr[$key] = $key . '="' . html_escape($attribute) . '"';
         } elseif ($attribute === true) {
             $attr[$key] = $key;
@@ -1962,27 +1963,31 @@ function browse_sort_links($links, $wrapperTags = array())
     }
 
     foreach ($links as $label => $column) {
+        $sortingLabel = __('Sort ascending');
         if ($column) {
             $urlParams = $_GET;
             $urlParams[$sortParam] = $column;
             $class = '';
+
             if ($currentSort && $currentSort == $column) {
                 if ($currentDir && $currentDir == 'd') {
                     $class = 'class="sorting desc"';
                     $urlParams[$sortDirParam] = 'a';
+                    $sortingLabel = __('Sorting descending');
                 } else {
                     $class = 'class="sorting asc"';
                     $urlParams[$sortDirParam] = 'd';
+                    $sortingLabel = __('Sorting ascending');
                 }
             }
             $url = html_escape(url(array(), null, $urlParams));
             if ($sortlistWrappers['link_tag'] !== '') {
-                $sortlist .= "<{$sortlistWrappers['link_tag']} $class $linkAttr><a href=\"$url\">$label</a></{$sortlistWrappers['link_tag']}>";
+                $sortlist .= "<{$sortlistWrappers['link_tag']} $class $linkAttr><a href=\"$url\">$label <span aria-label=\"$sortingLabel\" title=\"$sortingLabel\"></span></a></{$sortlistWrappers['link_tag']}>";
             } else {
-                $sortlist .= "<a href=\"$url\" $class $linkAttr>$label</a>";
+                $sortlist .= "<a href=\"$url\" $class $linkAttr>$label <span aria-label=\"$sortingLabel\" title=\"$sortingLabel\"></span></a>";
             }
         } else {
-            $sortlist .= "<{$sortlistWrappers['link_tag']}>$label</{$sortlistWrappers['link_tag']}>";
+            $sortlist .= "<{$sortlistWrappers['link_tag']}>$label <span aria-label=\"$sortingLabel\" title=\"$sortingLabel\"></span></{$sortlistWrappers['link_tag']}>";
         }
     }
     if (!empty($sortlistWrappers['list_tag'])) {
@@ -2528,7 +2533,7 @@ function link_to_file_show($attributes = array(), $text = null, $file = null)
         $file = get_current_record('file');
     }
     if (!$text) {
-        $text = metadata($file, 'display_title');
+        $text = metadata($file, 'rich_title', array('no_escape' => true));
     }
     return link_to($file, 'show', $text, $attributes);
 }
@@ -2555,7 +2560,7 @@ function link_to_item($text = null, $props = array(), $action = 'show', $item = 
         $item = get_current_record('item');
     }
     if (empty($text)) {
-        $text = metadata($item, 'display_title');
+        $text = metadata($item, 'rich_title', array('no_escape' => true));
     }
     return link_to($item, $action, $text, $props);
 }
@@ -2642,7 +2647,7 @@ function link_to_collection($text = null, $props = array(), $action = 'show', $c
         $collectionObj = get_current_record('collection');
     }
 
-    $collectionTitle = metadata($collectionObj, array('Dublin Core', 'Title'));
+    $collectionTitle = metadata($collectionObj, 'rich_title', array('no_escape' => true));
     $text = !empty($text) ? $text : $collectionTitle;
     return link_to($collectionObj, $action, $text, $props);
 }
@@ -3436,10 +3441,12 @@ function theme_logo()
 function theme_header_image()
 {
     $headerImage = get_theme_option('Header Image');
+    $headerImageAlt = get_theme_option('header_image_alt');
     if ($headerImage) {
         $storage = Zend_Registry::get('storage');
         $headerImage = $storage->getUri($storage->getPathByType($headerImage, 'theme_uploads'));
-        return '<div id="header-image"><img src="' . $headerImage . '" /></div>';
+        $altText = ($headerImageAlt !== null) ? $headerImageAlt : '';
+        return '<div id="header-image"><img src="' . $headerImage . '" alt="' . html_escape($altText) . '"/></div>';
     }
 }
 

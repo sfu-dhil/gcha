@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php if ($author = option('author')): ?>
+    <meta name="author" content="<?php echo $author; ?>" />
+    <?php endif; ?>
+    <?php if ($copyright = option('copyright')): ?>
+    <meta name="copyright" content="<?php echo $copyright; ?>" />
+    <?php endif; ?>
     <?php if ( $description = option('description')): ?>
     <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
@@ -37,6 +43,7 @@
     ($buttonColor = get_theme_option('button_color')) || ($buttonColor = "#000000");
     ($buttonTextColor = get_theme_option('button_text_color')) || ($buttonTextColor = "#FFFFFF");
     ($titleColor = get_theme_option('header_title_color')) || ($titleColor = "#000000");
+    ($useOriginalThumbnailSize = get_theme_option('use_original_thumbnail_size')) || ($useOriginalThumbnailSize = "0");
     ?>
     <style>
         body {
@@ -74,6 +81,16 @@
             border-color: <?php echo $buttonColor; ?>
         }
 
+        #collection-items .item img,
+        .browse .item-img,
+        .browse .image,
+        .browse #content .item img,
+        .browse .item #content img,
+        .browse .image img,
+        #home .image img {
+            height: <?php echo ($useOriginalThumbnailSize == "1") ? 'auto' : '100px' ?>;
+        }
+
         @media (max-width:768px) {
             #primary-nav li {
                 background-color: <?php echo thanksroy_brighten($buttonColor, 40); ?>;
@@ -85,6 +102,10 @@
 
             #primary-nav li li li {
                 background-color: <?php echo thanksroy_brighten($buttonColor, -20); ?>;
+            }
+
+            #primary-nav li a {
+                color: <?php echo $buttonTextColor; ?>;
             }
         }
     </style>
