@@ -1168,7 +1168,6 @@ class Apache_Solr_Service
 		$params['q'] = $query;
 		$params['start'] = $offset;
 		$params['rows'] = $limit;
-        $params['df'] = 'text';
 
 		$queryString = $this->_generateQueryString($params);
 
