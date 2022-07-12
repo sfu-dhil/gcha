@@ -1,3 +1,8 @@
+<?php
+    queue_js_file('lightbox.min', 'javascripts/vendor');
+    queue_css_file('lightbox');
+    ?>
+
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 
 <h1><?php echo metadata('item', 'rich_title', array('no_escape' => true)); ?></h1>
@@ -7,9 +12,9 @@
     <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
     <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
     <?php endif; ?>
-    
+
     <?php echo all_element_texts('item'); ?>
-    
+
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
 </div><!-- end primary -->
@@ -20,7 +25,7 @@
     <?php if ((get_theme_option('Item FileGallery') == 1) && metadata('item', 'has files')): ?>
     <div id="itemfiles" class="element">
         <h2><?php echo __('Files'); ?></h2>
-        <?php echo item_image_gallery(); ?>
+        <div class='element-text'><?php echo item_image_gallery(['link' => ['data-lightbox' => 'lightbox']]); ?></div>
     </div>
     <?php endif; ?>
 
