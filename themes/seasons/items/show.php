@@ -4,7 +4,7 @@
 
 <div id="primary">
 
-    <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
+    <?php if ((metadata('item', 'item type name') !== 'Still Image') || (get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
     <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
     <?php endif; ?>
 
@@ -17,7 +17,7 @@
 <aside id="sidebar">
 
     <!-- The following returns all of the files associated with an item. -->
-    <?php if ((get_theme_option('Item FileGallery') == 1) && metadata('item', 'has files')): ?>
+    <?php if ((metadata('item', 'item type name') !== 'Text') && (get_theme_option('Item FileGallery') == 1) && metadata('item', 'has files')): ?>
     <div id="itemfiles" class="element">
         <h2><?php echo __('Files'); ?></h2>
         <?php echo item_image_gallery(
