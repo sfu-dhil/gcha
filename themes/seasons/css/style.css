@@ -1261,6 +1261,14 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
     display: none;
   }
 
+  .img-thumbnail {
+    margin: 5px;
+  }
+
+  .link-thumbnail {
+    border: none !important;
+  }
+
   #content .layout-text p:only-child {
     margin-top: 24px;
   }
