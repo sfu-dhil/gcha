@@ -22,7 +22,8 @@
         <h2><?php echo __('Files'); ?></h2>
         <?php echo item_image_gallery(
                 array('image' => array('class' => 'img-thumbnail'),
-                      'link' => array('class' => 'link-thumbnail')), 'thumbnail'); ?>
+                      'link' => array('class' => 'link-thumbnail')),
+                'thumbnail'); ?>
     </div>
     <?php endif; ?>
 
