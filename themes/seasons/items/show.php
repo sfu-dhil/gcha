@@ -24,7 +24,7 @@
 <aside id="sidebar">
 
     <!-- The following returns all of the files associated with an item. -->
-    <?php if (metadata('item', 'item type name') === 'Still Image'): ?>
+    <?php if (metadata('item', 'file_count') > 1): ?>
         <div id='itemfiles' class='element'>
             <h2><?php echo __('Files'); ?></h2>
             <?php echo item_image_gallery(
