@@ -20,6 +20,26 @@ class SolrSearch_Form_Results extends Omeka_Form
 
         parent::init();
 
+        // Max Analyzed Chars
+        $this->addElement('text', 'solr_search_hl_max_analyzed_chars', array(
+            'label' => __('Extent of Document Highlightable'),
+            'description' => __('How much of the document can be highlighted, in characters. Occurrences past this point will not be returned in the results highlighting.'),
+            'value' => get_option('solr_search_hl_max_analyzed_chars'),
+            'required' => true,
+            'size' => 10,
+            'validators' => array(
+                array(
+                    'validator' => 'Int',
+                    'breakChainOnFailure' => true,
+                    'options' => array(
+                        'messages' => array(
+                            Zend_Validate_Int::NOT_INT => __('Must be an integer.')
+                        )
+                    )
+                )
+            )
+        ));
+
         // Enable Highlighting:
         $this->addElement('checkbox', 'solr_search_hl', array(
             'label'         => __('Enable Highlighting'),
@@ -55,26 +75,6 @@ class SolrSearch_Form_Results extends Omeka_Form
             'validators'    => array(
                 array('validator' => 'Int', 'breakChainOnFailure' => true, 'options' =>
                     array(
-                        'messages' => array(
-                            Zend_Validate_Int::NOT_INT => __('Must be an integer.')
-                        )
-                    )
-                )
-            )
-        ));
-
-        // Max Analyzed Chars
-        $this->addElement('text', 'solr_search_hl_max_analyzed_chars', array(
-            'label' => __('Extent of Document Highlightable'),
-            'description' => __('How much of the document can be highlighted, in characters. Occurrences past this point will not be returned in the results highlighting.'),
-            'value' => get_option('solr_search_hl_max_analyzed_chars'),
-            'required' => true,
-            'size' => 10,
-            'validators' => array(
-                array(
-                    'validator' => 'Int',
-                    'breakChainOnFailure' => true,
-                    'options' => array(
                         'messages' => array(
                             Zend_Validate_Int::NOT_INT => __('Must be an integer.')
                         )
@@ -121,19 +121,6 @@ class SolrSearch_Form_Results extends Omeka_Form
         $this->addElement('submit', 'submit', array(
             'label' => __('Save Settings')
         ));
-
-        $this->addDisplayGroup(array(
-            'solr_search_hl',
-            'solr_search_hl_snippets',
-            'solr_search_hl_fragsize',
-            'solr_search_facet_sort',
-            'solr_search_facet_limit',
-            'solr_search_display_private_items'
-        ), 'fields');
-
-        $this->addDisplayGroup(array(
-            'submit'
-        ), 'submit_button');
 
     }
 

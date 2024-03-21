@@ -70,17 +70,6 @@ class SolrSearch_Form_Server extends Omeka_Form
         $this->addElement('submit', 'submit', array(
             'label' => __('Save Settings')
         ));
-
-        $this->addDisplayGroup(array(
-            'solr_search_host',
-            'solr_search_port',
-            'solr_search_core'
-        ), 'fields');
-
-        $this->addDisplayGroup(array(
-            'submit'
-        ), 'submit_button');
-
     }
 
 

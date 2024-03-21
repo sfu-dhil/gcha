@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  db:
+    container_name: gcha_db
+    image: mariadb:10.11
+    ports:
+      - "13306:3306"
+    volumes:
+      - .data/mariadb:/var/lib/mysql
+      - ./docker/mariadb/custom.cnf:/etc/mysql/conf.d/custom.cnf
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: gcha
+      MARIADB_USER: gcha
+      MARIADB_PASSWORD: password
+    healthcheck:
+      test: mysql gcha -u gcha -ppassword -e 'SELECT 1;' || exit 1
+      interval: 2s
+      retries: 120
+
+  solr:
+    container_name: gcha_solr
+    image: solr:9.5
+    command: solr-precreate omeka
+    ports:
+     - "8983:8983"
+    volumes:
+      # overwrite default configset (managed-schema.xml & solrconfig.xml)
+      - ./docker/solr/managed-schema.xml:/opt/solr/server/solr/configsets/_default/conf/managed-schema.xml
+      - ./docker/solr/solrconfig.xml:/opt/solr/server/solr/configsets/_default/conf/solrconfig.xml
+      # persist data
+      - .data/solr:/var/solr
+    environment:
+      - SOLR_HEAP=500m
+
+  app:
+    container_name: gcha_app
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    volumes:
+      # In prod remember to customize/override: (disable development mode)
+      # - application/config/config.ini
+      # - .htaccess
+      # code for development
+      - ./themes:/var/www/html/themes
+      - ./plugins:/var/www/html/plugins
+      # persist file uploads & logs
+      - .data/app/files:/var/www/html/files
+      - .data/app/log:/var/www/html/application/logs
+    depends_on:
+      db:
+        condition: service_healthy
+
+  mail:
+    container_name: gcha_mail
+    image: jcalonso/mailhog:v1.0.1
+    ports:
+      - "8025:8025"

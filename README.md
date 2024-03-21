@@ -1,30 +1,68 @@
-# Welcome to Omeka
+# Grassroots Chinese History Archive
 
-© 2008-2016 [Roy Rosenzweig Center for History and New Media](http://chnm.gmu.edu/), 2016-present [Corporation for Digital Scholarship](http://digitalscholar.org/)
+The Grassroots Chinese History Archive (GCHA) aims to facilitate research by scholars worldwide in modern Chinese history, with a focus on the social, political, and cultural history of China's 1950s, 1960s, and 1970s.
 
-This program is free software: you can redistribute it and/or modify it under 
-the terms of the GNU General Public License as published by the Free Software 
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+## Requirements
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- A copy of the `omeka.sql` database sql file. If you are not sure what these are or where to get them, you should contact the [Digital Humanities Innovation Lab](mailto:dhil@sfu.ca) for access. This file should be placed in the root folder.
+- A copy of the data files. These should be placed directly into the `.data/app/files` directory (start the application for the first time if you don't see the data directory).
 
-You should have received a copy of the GNU General Public License along with
-this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
+## Initialize the Application
 
-Omeka includes:
+First you must setup the database for the first time
 
-* [Zend Framework](http://framework.zend.com)
-* [getID3](http://getid3.sourceforge.net)
-* [jQuery](http://jquery.com)
-* [jQuery UI](http://jqueryui.com)
-* [TinyMCE](http://tinymce.moxiecode.com)
-* [Silk Icons](http://www.famfamfam.com/lab/icons/silk/)
+    docker compose up -d db
+    # wait 30 after the command has fully completed
+    docker exec -it gcha_db bash -c "mysql -u gcha -ppassword gcha < /omeka.sql"
 
-Use and modifications of these libraries must comply with their respective 
-licenses.
+Next you must start the whole application
 
-Release notes for Omeka are available at
-[http://omeka.org/codex/Release_Notes](http://omeka.org/codex/Release_Notes).
+    docker compose up -d --build
+
+GCHA will now be available at `http://localhost:8080/`
+
+## General Usage
+
+### Starting the Application
+
+    docker compose up -d
+
+### Stopping the Application
+
+    docker compose down
+
+### Rebuilding the Application (after upstream or js/php package changes)
+
+    docker compose up -d --build
+
+### Viewing logs (each container)
+
+    docker logs -f gcha_app
+    docker logs -f gcha_db
+    docker logs -f gcha_solr
+    docker logs -f gcha_mail
+
+### Accessing the Application
+
+    http://localhost:8080/
+
+### Accessing Solr admin console
+
+    http://localhost:8983/
+
+### Accessing the Database
+
+Command line:
+
+    docker exec -it gcha_db mysql -u gcha -ppassword gcha
+
+Through a database management tool:
+- Host:`127.0.0.1`
+- Port: `13306`
+- Username: `gcha`
+- Password: `password`
+
+### Accessing Mailhog (catches emails sent by the app)
+
+    http://localhost:8025/
