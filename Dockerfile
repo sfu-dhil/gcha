@@ -7,7 +7,6 @@ RUN apt-get update \
         libapache2-mod-xsendfile \
         netcat-traditional \
         git-core \
-        apt-utils \
         unzip \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -23,6 +22,7 @@ RUN apt-get update \
         poppler-utils \
         libsodium-dev \
         libicu-dev \
+        nano \
         libvips-tools \
         apt-utils \
     && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \

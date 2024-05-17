@@ -7,8 +7,12 @@ ul.locale-switcher li {
     margin: 2px;
 }
 
+ul.locale-switcher li:not(:last-child):after {
+    content: "|";
+}
+
 ul.locale-switcher a {
-    display: block;
+    display: inline-block;
 }
 
 ul.locale-switcher .flag-icon {

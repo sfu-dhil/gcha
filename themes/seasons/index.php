@@ -29,6 +29,11 @@
 <?php echo exhibit_builder_display_random_featured_exhibit(); ?>
 <?php endif; ?>
 
+<?php if (plugin_is_active('TagWordCloud')
+        && function_exists('tag_word_cloud')): ?>
+<?php echo tag_word_cloud(); ?>
+<?php endif; ?>
+
 <?php
 $recentItems = get_theme_option('Homepage Recent Items');
 if ($recentItems === null || $recentItems === ''):

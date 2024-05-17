@@ -1,0 +1,17 @@
+
+
+@media screen {
+    #home #content #tag-word-cloud-container {
+        margin: 0;
+        margin-bottom: 24px;
+        width: 32.2033898305%;
+        float: left;
+        margin-right: 1.6949152542%;
+        margin-left: 0;
+        clear: left;
+    }
+
+    #home #content #tag-word-cloud {
+        height: 25em !important;
+    }
+}
