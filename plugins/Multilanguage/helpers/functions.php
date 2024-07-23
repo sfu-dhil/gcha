@@ -13,21 +13,33 @@ function locale_human($locale)
     if (isset($parts[1])) {
         $langCode = $parts[0];
         $regionCode = $parts[1];
-        // HACK - use the locale for the language
-        $language = Zend_Locale::getTranslation($langCode, 'language', $locale);
+        $language = Zend_Locale::getTranslation($langCode, 'language');
         $region = Zend_Locale::getTranslation($regionCode, 'territory');
     } else {
         $region = '';
-        // HACK - use the locale for the language
-        $language = Zend_Locale::getTranslation($locale, 'language', $locale);
+        $language = Zend_Locale::getTranslation($locale, 'language');
     }
     if ($region != '') {
         $region = " - $region";
     }
 
     // HACK - just return the language
+    // return ucfirst($language);
+    return ucfirst($language) . $region;
+}
+
+/**
+ * Convert a standard locale string (en_US)  into the language and region.
+ *
+ * @param string $locale
+ * @return string
+ */
+function locale_human_ui($locale)
+{
+    $parts = explode('_', $locale);
+    $langCode = $parts[0];
+    $language = Zend_Locale::getTranslation($langCode, 'language', $locale);
     return ucfirst($language);
-    // return ucfirst($language) . $region;
 }
 
 /**

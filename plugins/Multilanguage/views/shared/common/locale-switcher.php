@@ -35,11 +35,11 @@ if ($locales):
             <?php $country = $this->localeToCountry($locale); ?>
             <li>
                 <?php if ($currentLocale == $locale): ?>
-                    <span class="active flag-icon flag-icon-<?php echo strtolower($country); ?>"></span> <?php echo locale_human($locale); ?>
+                    <span class="active flag-icon flag-icon-<?php echo strtolower($country); ?>"></span> <?php echo locale_human_ui($locale); ?>
                 <?php else: ?>
                     <?php $language = Zend_Locale::getTranslation(substr($locale, 0, 2), 'language'); ?>
                     <?php $url = url('setlocale', array('locale' => $locale, 'redirect' => $currentUrl) + $query); ?>
-                    <a href="<?php echo $url ; ?>" title="<?php echo locale_human($locale); ?>"><span class="flag-icon flag-icon-<?php echo strtolower($country); ?>"></span> <?php echo locale_human($locale); ?></a>
+                    <a href="<?php echo $url ; ?>" title="<?php echo locale_human_ui($locale); ?>"><span class="flag-icon flag-icon-<?php echo strtolower($country); ?>"></span> <?php echo locale_human_ui($locale); ?></a>
                 <?php endif; ?>
             </li>
         <?php endforeach; ?>
