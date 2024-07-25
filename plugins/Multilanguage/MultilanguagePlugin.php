@@ -561,7 +561,7 @@ SQL;
     public function filterAdminNavigationGlobal($nav)
     {
         $enabledLocales = unserialize(get_option('multilanguage_locales_admin'));
-        if (empty($enabledLocales)) {
+        if (empty($enabledLocales) || count($enabledLocales) == 1) {
             return $nav;
         }
 
