@@ -28,7 +28,7 @@
   */
   /* !---------- General HTML Elements ---------- */
   body {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Noto Sans SC", sans-serif;
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
@@ -65,27 +65,31 @@
   h1 {
     font-size: 32px;
     line-height: 48px;
+    font-weight: normal;
   }
 
   h2 {
     font-size: 24px;
     line-height: 36px;
+    font-weight: normal;
   }
 
   h3 {
     font-size: 20px;
     line-height: 30px;
-    font-weight: 500;
+    font-weight: normal;
   }
 
   h4 {
     font-size: 18px;
     line-height: 27px;
+    font-weight: normal;
   }
 
   h5, h6 {
     font-size: 16px;
     line-height: 24px;
+    font-weight: normal;
   }
 
   p, ol, ul {
@@ -478,7 +482,7 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
     right: 36px;
   }
 
-  .show-advanced.button {
+  #search-form .show-advanced.button {
     width: 36px;
     height: 35px;
     text-indent: -9999px;
@@ -488,16 +492,15 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
     top: 0;
     right: 36px;
     line-height: 30px;
-    background-color: #4b6569;
     box-sizing: content-box;
   }
-  .show-advanced.button:focus {
+  #search-form .show-advanced.button:focus {
     outline: -webkit-focus-ring-color auto 5px;
   }
-  .show-advanced.button:link, .show-advanced.button:hover, .show-advanced.button:active, .show-advanced.button:visited {
+  #search-form .show-advanced.button:link, #search-form .show-advanced.button:hover, #search-form .show-advanced.button:active, #search-form .show-advanced.button:visited {
     color: #fff;
   }
-  .show-advanced.button:after {
+  #search-form .show-advanced.button:after {
     width: 36px;
     content: "…";
     display: block;
@@ -579,7 +582,7 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
 #content #primary > h2:first-child, #content #primary > div > h2:first-child,
 #content #sidebar > h2:first-child, #content #sidebar > div > h2:first-child {
     padding: 0 16px 6px;
-    font-weight: 500;
+    font-weight: normal;
     border-style: solid;
     border-width: 0 0 5px 0;
     margin: 0 0 12px -16px;
@@ -800,7 +803,7 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
   }
   #home #content div h3 {
     margin-top: 0;
-    font-weight: 300;
+    font-weight: normal;
     text-transform: uppercase;
   }
   #home #content div img {
@@ -962,15 +965,12 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
     margin-top: 12px;
   }
 
-  .search-entry select {
-    width: calc(49% - 2.25em);
-    margin-bottom: 6px;
+  .search-entry {
+    justify-content: space-between;
   }
-  .search-entry input[type=text] {
-    width: calc(100% - 48px);
-  }
-  .search-entry select {
-    margin-right: 1%;
+  .search-entry select,
+.search-entry input[type=text] {
+    margin-bottom: 0 !important;
   }
   .search-entry:first-of-type {
     padding-bottom: 0;
@@ -979,29 +979,13 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
     display: none;
   }
   .search-entry .advanced-search-joiner {
-    width: 4em;
+    width: 100%;
+  }
+  .search-entry .advanced-search-joiner select {
+    width: auto;
   }
   .search-entry:only-of-type {
     margin-bottom: 0;
-  }
-
-  .remove_search {
-    text-indent: -9999px;
-    width: 36px;
-    position: relative;
-    height: 36px;
-  }
-  .remove_search:after {
-    content: "";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    text-indent: 0;
-    text-align: center;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    line-height: 36px;
   }
 
   .advanced-search button {
@@ -1259,14 +1243,6 @@ nav.pagination .pagination_list .pagination_previous a:after, nav.pagination .pa
 .image-list-left-thumbs div:empty, .image-list-right div:empty, .image-list-right-thumbs div:empty,
 .text-full div:empty, .text-image-left div:empty, .text-image-right div:empty {
     display: none;
-  }
-
-  .img-thumbnail {
-    margin: 5px;
-  }
-
-  .link-thumbnail {
-    border: none !important;
   }
 
   #content .layout-text p:only-child {
@@ -2249,7 +2225,7 @@ nav.top .nav-item > a.open {
   /* !---------- Advanced Search ---------- */
   .search-entry select,
 .search-entry input[type=text] {
-    width: 24%;
+    width: 100%;
   }
 
   /* !---------- Content --------- */
