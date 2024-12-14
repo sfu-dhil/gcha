@@ -4,12 +4,14 @@
 
 <div id="primary">
 
+    <?php echo $this->universalViewer($item); ?>
+
     <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
     <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
     <?php endif; ?>
-    
+
     <?php echo all_element_texts('item'); ?>
-    
+
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
 </div><!-- end primary -->
