@@ -4,10 +4,19 @@
 
 <div id="primary">
 
-    <?php echo $this->universalViewer($item); ?>
+    <?php $pdfFiles = array_filter($item->Files, function($file) {
+        return $file->mime_type == 'application/pdf';
+    }); ?>
+    <?php $otherFiles = array_filter($item->Files, function($file) {
+        return $file->mime_type !== 'application/pdf';
+    }); ?>
 
     <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
-    <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
+    <?php echo file_markup($pdfFiles, array('imageSize' => 'fullsize')); ?>
+    <?php endif; ?>
+
+    <?php if (plugin_is_active('UniversalViewer') && metadata('item', 'has files') && count($otherFiles) > 0): ?>
+    <?php echo $this->universalViewer($item); ?>
     <?php endif; ?>
 
     <?php echo all_element_texts('item'); ?>

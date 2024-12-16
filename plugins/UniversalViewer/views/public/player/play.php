@@ -11,7 +11,7 @@
 ?>
 <?php
     echo $this->universalViewer($record, array(
-        'style' => 'height: 600px;' . get_option('universalviewer_style'),
+        'style' => 'height: 800px;' . get_option('universalviewer_style'),
     ));
 ?>
 <?php echo foot();

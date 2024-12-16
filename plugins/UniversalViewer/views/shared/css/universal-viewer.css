@@ -6,7 +6,7 @@
 
 @media screen {
     .universal-viewer {
-        height: 600px;
+        height: 800px;
     }
     .universal-viewer .headerPanel .centerOptions .mode label {
         width: auto;

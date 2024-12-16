@@ -1,0 +1,14 @@
+{
+    "options": {
+      "pagingEnabled": false,
+      "limitLocales": true,
+      "useArrowKeysToNavigate": true,
+      "clickToZoomEnabled": true,
+      "navigatorEnabled": true,
+      "preserveViewport": true,
+      "zoomToBoundsEnabled": true
+    },
+    "modules": {
+
+    }
+  }
