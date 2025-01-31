@@ -36,7 +36,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add the Omeka PHP code
-# Latest Omeka version, check: https://omeka.org/s/download/
+# Latest Omeka version, check: https://omeka.org/classic/download/
 ENV OMEKA_VERSION=3.1.2
 RUN curl -L "https://github.com/omeka/Omeka/releases/download/v${OMEKA_VERSION}/omeka-${OMEKA_VERSION}.zip" -o /var/www/omeka-${OMEKA_VERSION}.zip \
     && unzip /var/www/omeka-${OMEKA_VERSION}.zip -d /var/www/ \

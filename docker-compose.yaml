@@ -17,10 +17,10 @@ services:
       interval: 2s
       retries: 120
 
-  solr:
+  gcha_solr:
     container_name: gcha_solr
     image: solr:9.5
-    command: solr-precreate omeka
+    command: solr-precreate gcha
     ports:
      - "8983:8983"
     volumes:
