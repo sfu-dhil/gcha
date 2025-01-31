@@ -12,6 +12,7 @@
     <?php if ($description = option('description')): ?>
     <meta name="description" content="<?php echo $description; ?>">
     <?php endif; ?>
+    <meta name="google-site-verification" content="ksKmokXhkESjnw4e3uA3Z7avKa_6A4O73lPesWCDRwY" />
 
     <?php
     if (isset($title)) {
@@ -37,7 +38,7 @@
     ?>
 
     <!-- JavaScripts -->
-    <?php 
+    <?php
     queue_js_file(array(
         'vendor/selectivizr',
         'vendor/jquery-accessibleMegaMenu',
@@ -45,7 +46,7 @@
         'jquery-extra-selectors',
         'seasons',
         'globals'
-    )); 
+    ));
     ?>
 
     <?php echo head_js(); ?>
