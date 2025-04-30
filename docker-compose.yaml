@@ -30,7 +30,7 @@ services:
       # persist data
       - .data/solr:/var/solr
     environment:
-      - SOLR_HEAP=500m
+      SOLR_HEAP: 500m
 
   app:
     container_name: gcha_app

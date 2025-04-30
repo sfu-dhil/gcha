@@ -57,7 +57,9 @@ COPY --chown=www-data:www-data --chmod=771 docker/omeka/application/config/confi
 COPY --chown=www-data:www-data --chmod=771 themes /var/www/html/themes/
 COPY --chown=www-data:www-data --chmod=771 plugins /var/www/html/plugins/
 
-RUN chown www-data:www-data -R themes/ plugins/ \
-    && chmod 771 -R themes/ plugins/
+RUN mkdir -p application/logs \
+    && touch application/logs/errors.log \
+    && chown www-data:www-data -R themes plugins application/logs \
+    && chmod 771 -R themes plugins application/logs
 
 CMD ["/docker-entrypoint.sh"]
