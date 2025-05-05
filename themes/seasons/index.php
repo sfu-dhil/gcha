@@ -4,6 +4,15 @@
 <p><?php echo get_theme_option('Homepage Text'); ?></p>
 <?php endif; ?>
 
+
+<?php if (plugin_is_active('SimplePages')): ?>
+<div id="featured-item">
+    <?php $record = locale_record_from_id_or_slug('SimplePagesPage', 'the-database'); ?>
+    <h2><?php echo $record->title; ?></h2>
+    <?php echo $record->text; ?>
+</div>
+<?php endif; ?>
+
 <?php if (get_theme_option('Display Featured Item') !== '0'): ?>
 <!-- Featured Item -->
 <div id="featured-item">
