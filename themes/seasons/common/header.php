@@ -31,7 +31,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php
-    queue_css_url('//fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+    queue_css_url('//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic');
+    // queue_css_url('//fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
     queue_css_file(array('iconfonts', 'normalize', 'style'), 'screen');
     queue_css_file('print', 'print');
     echo head_css();
@@ -71,6 +72,9 @@
 
         <nav id="top-nav" class="top" role="navigation">
             <?php echo public_nav_main(); ?>
+            <?php if (plugin_is_active('Multilanguage')): ?>
+                <?php echo $this->localeSwitcher(); ?>
+            <?php endif; ?>
         </nav>
 
         <div id="content" role="main" tabindex="-1">

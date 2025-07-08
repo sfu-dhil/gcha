@@ -1,12 +1,7 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 
-<?php if (get_theme_option('Homepage Text')): ?>
-<p><?php echo get_theme_option('Homepage Text'); ?></p>
-<?php endif; ?>
-
-
 <?php if (plugin_is_active('SimplePages')): ?>
-<div id="featured-item">
+<div id="intro">
     <?php $record = locale_record_from_id_or_slug('SimplePagesPage', 'the-database'); ?>
     <h2><?php echo $record->title; ?></h2>
     <?php echo $record->text; ?>

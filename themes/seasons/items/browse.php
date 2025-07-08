@@ -54,6 +54,18 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
         </div>
         <?php endif; ?>
 
+        <?php if ($metadataIdentifier = metadata('item', array('Dublin Core', 'Identifier'))): ?>
+        <div><strong><?php echo __('Identifier'); ?>:</strong>
+            <?php echo $metadataIdentifier; ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($metadataSubject = metadata('item', array('Dublin Core', 'Subject'))): ?>
+        <div><strong><?php echo __('Subject'); ?>:</strong>
+            <?php echo $metadataSubject; ?>
+        </div>
+        <?php endif; ?>
+
         <?php if (metadata('item', 'has tags')): ?>
         <div class="tags"><strong><?php echo __('Tags'); ?>:</strong>
             <?php echo tag_string('items'); ?>

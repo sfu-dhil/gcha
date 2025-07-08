@@ -5,7 +5,6 @@ jQuery(() => {
     }
 
     const tags = JSON.parse(tagWordCloudEl.dataset.tags)
-    console.log('tags', tags)
     const data = tags.filter(tag => tag.tagCount >= 5).map(tag => {
         return {
             name: tag.name,
@@ -26,7 +25,7 @@ jQuery(() => {
             // cardioid (apple or heart shape curve, the most known polar equation), diamond (
             // alias of square), triangle-forward, triangle, (alias of triangle-upright, pentagon, and star.
             shape: 'circle',
-            keepAspect: true,
+            keepAspect: false,
             left: 'center',
             top: 'center',
             width: '100%',
