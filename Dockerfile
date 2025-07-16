@@ -51,6 +51,10 @@ COPY docker/image-policy.xml /etc/ImageMagick-6/policy.xml
 # override omeka chinese language files
 COPY docker/omeka/application/languages/zh_CN.mo docker/omeka/application/languages/zh_CN.po /var/www/html/application/languages/
 
+# HACK: override admin theme to allow multi file upload chinese language files (TODO: taken main branch/next version of omeka classic, remove after upgrading)
+COPY docker/omeka/admin/themes/default/items/files-form.php /var/www/html/admin/themes/default/items/files-form.php
+COPY docker/omeka/admin/themes/default/javascripts/items.js /var/www/html/admin/themes/default/javascripts/items.js
+
 # omeka settings
 COPY --chown=www-data:www-data --chmod=771 docker/omeka/db.ini docker/omeka/robots.txt docker/omeka/.htaccess /var/www/html/
 COPY --chown=www-data:www-data --chmod=771 docker/omeka/application/config/config.ini /var/www/html/application/config/config.ini
