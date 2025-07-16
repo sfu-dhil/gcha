@@ -58,6 +58,7 @@
     <div id="wrap">
         <header role="banner">
             <div id="site-title">
+                
                 <?php echo link_to_home_page(theme_logo()); ?>
             </div>
             <div id="search-container" role="search">

@@ -3,10 +3,116 @@
 
 // screen --------------------------------------------------------------------
 @media screen {
-    @import "screen";
+  @import "screen";
 }
 
 // 768px  --------------------------------------------------------------------
 @media screen and (min-width: 768px) {
-    @import "screen_768";
+  @import "screen_768";
+  .items.show {
+    #primary {
+      position: sticky;
+      top: 0;
+      &:not(> .application-pdf) {
+        height: 85vh;
+        > * {
+          height: 100%;
+          > * {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.autumn {
+  // Overrides
+
+  header[role="banner"] {
+    ul.locale-switcher {
+      display: none;
+    }
+  }
+
+  nav.top a:link,
+  .autumn nav.top a:visited {
+    font-size: 0.85rem;
+  }
+
+  div.element {
+    background-color: #fdfdfd;
+  }
+
+  #simple-pages-breadcrumbs {
+    color: #868686;
+  }
+
+  #content > div,
+  #content #primary > div,
+  #content #sidebar > div,
+  #content #advanced-search-form > div {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  ul.locale-switcher .current-locale {
+    background-color: #ededed !important;
+  }
+  /** All headings */
+
+  :is(h1, h2, h3, h4, h5) {
+    color: #6b6b6b;
+    text-transform: uppercase;
+    margin-block-end: 0.25em;
+  }
+
+  #content > h1 {
+    color: black;
+    line-height: 1.2;
+  }
+  h1 {
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 1.38em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+  h4 {
+    font-size: 1.21em;
+  }
+  h5 {
+    font-size: 1.07em;
+  }
+
+  .page #primary {
+    padding: 1em 2em;
+  }
+  .collections.show {
+    #content > .element-set > #dublin-core-title {
+      display: none;
+    }
+    #collection-items .item.hentry {
+      border-bottom: 1px solid #dfe2e2;
+    }
+  }
+  .exhibits.summary {
+    #content #primary .exhibit-description {
+      box-shadow: none;
+    }
+  }
+
+  .items.show {
+    #primary {
+      box-shadow: none;
+    }
+    #primary > div {
+      box-shadow: none;
+      border-top: none;
+    }
+    div.element-set > div {
+      border-bottom: double 3px #9d9f98;
+      padding: 0.25em 0;
+    }
+  }
 }
