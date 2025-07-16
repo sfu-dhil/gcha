@@ -4,12 +4,12 @@
 
 <div id="primary">
     
- 
+    <?php echo all_element_texts('item'); ?>
 
 </div><!-- end primary -->
 
 <aside id="sidebar">
-   <?php echo all_element_texts('item'); ?>
+
     <!-- The following returns all of the files associated with an item. -->
     <?php if (metadata('item', 'has files')): ?>
     <div id="itemfiles" class="element">
