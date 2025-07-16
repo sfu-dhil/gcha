@@ -101,18 +101,24 @@
       box-shadow: none;
     }
   }
-
-  .items.show {
-    #primary {
-      box-shadow: none;
+  .items {
+    &.browse {
+      #outputs {
+        box-shadow: none;
+      }
     }
-    #primary > div {
-      box-shadow: none;
-      border-top: none;
-    }
-    div.element-set > div {
-      border-bottom: double 3px #9d9f98;
-      padding: 0.25em 0;
+    &.show {
+      #primary {
+        box-shadow: none;
+      }
+      #primary > div {
+        box-shadow: none;
+        border-top: none;
+      }
+      div.element-set > div {
+        border-bottom: double 3px #9d9f98;
+        padding: 0.25em 0;
+      }
     }
   }
 }

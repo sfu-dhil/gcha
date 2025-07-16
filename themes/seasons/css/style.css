@@ -2233,6 +2233,9 @@ footer:after {
 .autumn .exhibits.summary #content #primary .exhibit-description {
   box-shadow: none;
 }
+.autumn .items.browse #outputs {
+  box-shadow: none;
+}
 .autumn .items.show #primary {
   box-shadow: none;
 }
