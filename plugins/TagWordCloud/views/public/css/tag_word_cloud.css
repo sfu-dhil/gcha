@@ -7,14 +7,16 @@
         text-transform: uppercase;
     }
 
-    #home #content #tag-word-cloud-container {
-        margin: 0;
-        width: 33.10169%;
-        float: left;
-        clear: left;
-    }
-
     #home #content #tag-word-cloud {
         height: 25em !important;
     }
+}
+
+@media screen and (min-width: 768px) {
+  #home #content > #tag-word-cloud-container {
+    width: 33.10169%;
+    margin-left: 0;
+    margin-right: 0;
+    clear: left;
+  }
 }
