@@ -19,14 +19,14 @@
     <?php echo $this->universalViewer($item); ?>
     <?php endif; ?>
 
-    <?php echo all_element_texts('item'); ?>
+
 
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
 </div><!-- end primary -->
 
 <aside id="sidebar">
-
+    <?php echo all_element_texts('item'); ?>
     <!-- The following returns all of the files associated with an item. -->
     <?php if ((get_theme_option('Item FileGallery') == 1) && metadata('item', 'has files')): ?>
     <div id="itemfiles" class="element">

@@ -15,7 +15,7 @@ h1,
 }
 h2{
 	font-size:14pt;
-	font-style:italic;
+	// font-style:italic;
 }
 h3 {
 	font-size:14pt;
@@ -25,11 +25,11 @@ h4 {
 }
 h5 {
 	font-weight:bold;
-	font-style:italic;
+	// font-style:italic;
 	text-transform:uppercase;
 }
 a:link:after {
-	content: " (" attr(href) ") ";
+	// content: " (" attr(href) ") ";
 	font-size:80%;
 }
 #search-container,

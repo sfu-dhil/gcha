@@ -1,13 +1,16 @@
 
 
 @media screen {
+    #tag-word-cloud-container h2 {
+        color: #6b6b6b;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
     #home #content #tag-word-cloud-container {
         margin: 0;
-        margin-bottom: 24px;
-        width: 32.2033898305%;
+        width: 33.10169%;
         float: left;
-        margin-right: 1.6949152542%;
-        margin-left: 0;
         clear: left;
     }
 

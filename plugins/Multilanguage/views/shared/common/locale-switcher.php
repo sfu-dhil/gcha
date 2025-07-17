@@ -33,9 +33,9 @@ if ($locales):
     <ul class="locale-switcher">
         <?php foreach ($locales as $locale): ?>
             <?php $country = $this->localeToCountry($locale); ?>
-            <li>
+            <li class="<?php if ($currentLocale == $locale): ?>current-locale<?php endif; ?>">
                 <?php if ($currentLocale == $locale): ?>
-                    <?php echo locale_human_ui($locale); ?>
+                    <div><?php echo locale_human_ui($locale); ?></div>
                 <?php else: ?>
                     <?php $language = Zend_Locale::getTranslation(substr($locale, 0, 2), 'language'); ?>
                     <?php $url = url('setlocale', array('locale' => $locale, 'redirect' => $currentUrl) + $query); ?>
