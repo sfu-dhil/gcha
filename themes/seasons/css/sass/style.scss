@@ -56,8 +56,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
     .logo {
       aspect-ratio: 1;
       position: absolute;
-      width: 20%;
-      max-width: 20%;
+      width: 12rem;
       background-repeat: no-repeat;
       background-position: top right;
       height: auto;
@@ -66,9 +65,8 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       /* margin: 0 auto; */
       padding-bottom: 2rem;
       top: 0;
-      left: 80%;
-      /* right: 2%; */
-      transform: rotate(22deg);
+      left: 0;
+      transform: rotate(-12deg);
       backdrop-filter: opacity(0.2);
       opacity: 0.2;
     }
@@ -85,6 +83,9 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       #site-title {
         all: revert;
         line-height: 1.2;
+        margin: 0 auto;
+        max-width: 30ch;
+        text-align: center;
         a {
           color: $black;
           font-size: 28px;
@@ -383,6 +384,12 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
 @media screen and (min-width: 768px) {
   @import "screen_768";
   .autumn {
+    .logo {
+      width: 18rem;
+      top: 0;
+      left: min(calc(85rem + 9rem), calc(100vw - 22rem));
+      transform: rotate(18deg);
+    }
     #home #content {
       grid-template-columns: 1fr 2fr;
       grid-template-areas:
@@ -416,6 +423,9 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       #site-title {
         padding-left: 0;
         padding-right: 0;
+        max-width: unset;
+        text-align: left;
+        margin: 0;
       }
       ul.locale-switcher {
         display: none;

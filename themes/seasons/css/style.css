@@ -1882,8 +1882,7 @@ nav.pagination .pagination_list .pagination_next a:after {
   .autumn .logo {
     aspect-ratio: 1;
     position: absolute;
-    width: 20%;
-    max-width: 20%;
+    width: 12rem;
     background-repeat: no-repeat;
     background-position: top right;
     height: auto;
@@ -1892,9 +1891,8 @@ nav.pagination .pagination_list .pagination_next a:after {
     /* margin: 0 auto; */
     padding-bottom: 2rem;
     top: 0;
-    left: 80%;
-    /* right: 2%; */
-    transform: rotate(22deg);
+    left: 0;
+    transform: rotate(-12deg);
     -webkit-backdrop-filter: opacity(0.2);
             backdrop-filter: opacity(0.2);
     opacity: 0.2;
@@ -1912,6 +1910,9 @@ nav.pagination .pagination_list .pagination_next a:after {
   .autumn header[role=banner] #site-title {
     all: revert;
     line-height: 1.2;
+    margin: 0 auto;
+    max-width: 30ch;
+    text-align: center;
   }
   .autumn header[role=banner] #site-title a {
     color: oklch(14.1% 0.005 285.823);
@@ -2459,6 +2460,12 @@ footer:after {
     color: #c3c3c3;
   }
 
+  .autumn .logo {
+    width: 18rem;
+    top: 0;
+    left: min(calc(85rem + 9rem), calc(100vw - 22rem));
+    transform: rotate(18deg);
+  }
   .autumn #home #content {
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "intro featured-collection" "intro featured-collection" "intro featured-exhibit" "intro featured-exhibit" "intro recent-items" "tag-word-cloud-container recent-items" "tag-word-cloud-container recent-items" "tag-word-cloud-container recent-items";
@@ -2484,6 +2491,9 @@ footer:after {
   .autumn header[role=banner] #site-title {
     padding-left: 0;
     padding-right: 0;
+    max-width: unset;
+    text-align: left;
+    margin: 0;
   }
   .autumn header[role=banner] ul.locale-switcher {
     display: none;
