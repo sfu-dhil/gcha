@@ -2463,8 +2463,8 @@ footer:after {
   .autumn .logo {
     width: 18rem;
     top: 0;
-    left: min(calc(85rem + 9rem), calc(100vw - 22rem));
-    transform: rotate(18deg);
+    left: 0;
+    transform: translateX(min(calc(85rem + 9rem), calc(100vw - 22rem))) rotate(18deg);
   }
   .autumn #home #content {
     grid-template-columns: 1fr 2fr;
