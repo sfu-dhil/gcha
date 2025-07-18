@@ -11,7 +11,11 @@ echo head(array(
 </nav>
 <?php endif; ?>
 
+<div class="header">
 <h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></span></h1>
+
+</div>
+
 
 <?php if (count(exhibit_builder_child_pages()) > 0 && $exhibitNavOption == 'full'): ?>
 <nav id="exhibit-child-pages" class="secondary-nav">

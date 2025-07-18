@@ -1,5 +1,5 @@
 </div><!-- end content -->
-
+   <div class="logo"></div>
 <footer role="contentinfo">
 
         <div id="custom-footer-text">
