@@ -1893,9 +1893,7 @@ nav.pagination .pagination_list .pagination_next a:after {
     top: 0;
     left: 0;
     transform: rotate(-12deg);
-    -webkit-backdrop-filter: opacity(0.2);
-            backdrop-filter: opacity(0.2);
-    opacity: 0.2;
+    opacity: 0.4;
   }
   .autumn header[role=banner] {
     z-index: 2;
@@ -1951,6 +1949,23 @@ nav.pagination .pagination_list .pagination_next a:after {
   .autumn #content h3 {
     font-size: 1.21em;
   }
+  .autumn #content h3 a,
+.autumn #content h3 a:link,
+.autumn #content h3 a[href],
+.autumn #content h3 a:visited {
+    color: oklch(0.3514 0.1003 28.62);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    -webkit-text-decoration-skip-ink: skip;
+            text-decoration-skip-ink: skip;
+    font-weight: bold;
+  }
+  .autumn #content h3 a:hover,
+.autumn #content h3 a:link:hover,
+.autumn #content h3 a[href]:hover,
+.autumn #content h3 a:visited:hover {
+    color: oklch(0.3861 0.1228 28.62);
+  }
   .autumn #content h4 {
     font-size: 1.07em;
   }
@@ -1974,18 +1989,20 @@ nav.pagination .pagination_list .pagination_next a:after {
 .autumn #home #content #recent-items > h2 {
     color: oklch(37% 0.013 285.805);
   }
-  .autumn a:link,
-.autumn a:visited,
-.autumn a[href] {
+  .autumn a,
+.autumn a:link,
+.autumn a[href],
+.autumn a:visited {
     color: oklch(0.4444 0.1686 28.62);
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
     -webkit-text-decoration-skip-ink: skip;
             text-decoration-skip-ink: skip;
   }
-  .autumn a:link:hover,
-.autumn a:visited:hover,
-.autumn a[href]:hover {
+  .autumn a:hover,
+.autumn a:link:hover,
+.autumn a[href]:hover,
+.autumn a:visited:hover {
     color: oklch(0.3861 0.1228 28.62);
   }
   .autumn #content #sort-links {
@@ -2008,6 +2025,9 @@ nav.pagination .pagination_list .pagination_next a:after {
   }
   .autumn #content button {
     background-color: oklch(98.5% 0 0/0.5);
+  }
+  .autumn .header > #simple-pages-breadcrumbs {
+    margin-bottom: 0.8rem;
   }
   .autumn .header > #simple-pages-breadcrumbs > a {
     display: inline;
@@ -2070,10 +2090,9 @@ nav.pagination .pagination_list .pagination_next a:after {
   .autumn .collections.show #content .element-set,
 .autumn #content div.header {
     padding: 0.75rem 1rem;
-    border: 3px dashed oklch(91.586% 0.006 53.44);
-    background: oklch(98.5% 0 0/0.5) !important;
-    width: clamp(25rem, 60%, min-content);
-    box-shadow: 0px 4px 4px 0px rgba(133, 6, 6, 0.01);
+    background: oklch(97.788% 0.004 56.375/0.5) !important;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .autumn div.header > p:first-child {
     font-size: 0.8em;
@@ -2489,7 +2508,7 @@ footer:after {
     position: relative;
   }
   .autumn header[role=banner] #site-title {
-    padding-left: 0;
+    padding-left: 0.8rem;
     padding-right: 0;
     max-width: unset;
     text-align: left;
@@ -2505,7 +2524,7 @@ footer:after {
     justify-content: space-between;
     grid-template-columns: auto auto;
     position: relative;
-    background: oklch(98.5% 0 0/0.5);
+    background: oklch(97.788% 0.004 56.375/0.5);
   }
   .autumn #top-nav .nav-menu > .nav-item > a:link, .autumn #top-nav .nav-menu > .nav-item > a:visited {
     color: oklch(14.1% 0.005 285.823);

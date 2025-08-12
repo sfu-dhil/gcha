@@ -7,11 +7,29 @@ $grey: oklch(37% 0.013 285.805);
 $dark-grey: oklch(44.2% 0.017 285.786);
 $white-transparent: oklch(98.5% 0 0 / 0.5);
 $neutral: oklch(97.788% 0.004 56.375);
+$neutral-transparent: oklch(97.788% 0.004 56.375 / 0.5);
 $neutral-3: oklch(91.586% 0.006 53.44);
 $red-light: oklch(0.7529 0.0743 28.62);
 $red-base: oklch(0.4444 0.1686 28.62);
 $red-darker: oklch(0.3861 0.1228 28.62);
 $red-darkest: oklch(0.3514 0.1003 28.62);
+
+@mixin link($color: $red-base, $hover: $red-darker) {
+  a,
+  a:link,
+  a[href],
+  a:visited {
+    color: $color;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: skip;
+    @content;
+    &:hover {
+      color: $hover;
+    }
+  }
+}
+
 // screen --------------------------------------------------------------------
 @media screen {
   @import "screen";
@@ -67,8 +85,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       top: 0;
       left: 0;
       transform: rotate(-12deg);
-      backdrop-filter: opacity(0.2);
-      opacity: 0.2;
+      opacity: 0.4;
     }
 
     header[role="banner"] {
@@ -129,6 +146,9 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       }
       h3 {
         font-size: 1.21em;
+        @include link($color: $red-darkest) {
+          font-weight: bold;
+        }
       }
       h4 {
         font-size: 1.07em;
@@ -156,17 +176,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
 
     /*********************** LINKS */
 
-    a:link,
-    a:visited,
-    a[href] {
-      color: $red-base;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-      text-decoration-skip-ink: skip;
-      &:hover {
-        color: $red-darker;
-      }
-    }
+    @include link;
 
     /*********************** SORT LINKS */
 
@@ -199,6 +209,9 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
 
     /*********************** BREADCRUMBS */
 
+    .header > #simple-pages-breadcrumbs {
+      margin-bottom: 0.8rem;
+    }
     .header > #simple-pages-breadcrumbs > a {
       display: inline;
       padding: 0;
@@ -280,10 +293,8 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
     .collections.show #content .element-set,
     #content div.header {
       padding: 0.75rem 1rem;
-      border: 3px dashed $neutral-3;
-      background: $white-transparent !important;
-      width: clamp(25rem, 60%, min-content);
-      box-shadow: 0px 4px 4px 0px rgba(133, 6, 6, 0.01);
+      background: $neutral-transparent !important;
+      width: fit-content;
     }
 
     div.header > p:first-child {
@@ -422,7 +433,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       grid-template-columns: auto 1fr;
       position: relative;
       #site-title {
-        padding-left: 0;
+        padding-left: 0.8rem;
         padding-right: 0;
         max-width: unset;
         text-align: left;
@@ -439,7 +450,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       justify-content: space-between;
       grid-template-columns: auto auto;
       position: relative;
-      background: $white-transparent;
+      background: $neutral-transparent;
       .nav-menu > .nav-item > a {
         &:link,
         &:visited {
