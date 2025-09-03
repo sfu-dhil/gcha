@@ -3,6 +3,7 @@
 
 $black: oklch(14.1% 0.005 285.823);
 $white: oklch(98.5% 0 0);
+$light-grey: oklch(0.8988 0.017 285.786);
 $grey: oklch(37% 0.013 285.805);
 $dark-grey: oklch(44.2% 0.017 285.786);
 $white-transparent: oklch(98.5% 0 0 / 0.5);
@@ -369,7 +370,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
               padding-bottom: 0.375em;
               padding-top: 0.375em;
               padding-left: 2rem;
-              border-bottom: 1px solid $neutral-3;
+              border-bottom: 1px solid $dark-grey;
               .element-text {
                 padding-bottom: 0.375em;
               }
@@ -451,20 +452,20 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
       grid-template-columns: auto auto;
       position: relative;
       background: $neutral-transparent;
-      .nav-menu > .nav-item > a {
+      .nav-menu > .nav-item:not(:hover) > a {
         &:link,
         &:visited {
           color: $black;
           &:hover {
             color: $white;
           }
-          li:hover & {
-            color: $white;
-          }
         }
       }
-      ul li:hover {
+      .nav-menu > li:hover {
         background: $red-darker;
+        & > a {
+          color: $white;
+        }
       }
       ul li ul li {
         &:hover,
@@ -498,7 +499,7 @@ $red-darkest: oklch(0.3514 0.1003 28.62);
             width: unset;
             margin-right: unset;
             padding-right: 1rem;
-            border-right: 1px solid $neutral-3;
+            border-right: 1px solid $dark-grey;
             > * {
               position: sticky;
               top: 0.2rem;

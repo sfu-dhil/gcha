@@ -2139,7 +2139,7 @@ nav.pagination .pagination_list .pagination_next a:after {
     padding-bottom: 0.375em;
     padding-top: 0.375em;
     padding-left: 2rem;
-    border-bottom: 1px solid oklch(91.586% 0.006 53.44);
+    border-bottom: 1px solid oklch(44.2% 0.017 285.786);
   }
   .autumn .items.show #content #sidebar .element .element-text {
     padding-bottom: 0.375em;
@@ -2526,17 +2526,17 @@ footer:after {
     position: relative;
     background: oklch(97.788% 0.004 56.375/0.5);
   }
-  .autumn #top-nav .nav-menu > .nav-item > a:link, .autumn #top-nav .nav-menu > .nav-item > a:visited {
+  .autumn #top-nav .nav-menu > .nav-item:not(:hover) > a:link, .autumn #top-nav .nav-menu > .nav-item:not(:hover) > a:visited {
     color: oklch(14.1% 0.005 285.823);
   }
-  .autumn #top-nav .nav-menu > .nav-item > a:link:hover, .autumn #top-nav .nav-menu > .nav-item > a:visited:hover {
+  .autumn #top-nav .nav-menu > .nav-item:not(:hover) > a:link:hover, .autumn #top-nav .nav-menu > .nav-item:not(:hover) > a:visited:hover {
     color: oklch(98.5% 0 0);
   }
-  li:hover .autumn #top-nav .nav-menu > .nav-item > a:link, li:hover .autumn #top-nav .nav-menu > .nav-item > a:visited {
-    color: oklch(98.5% 0 0);
-  }
-  .autumn #top-nav ul li:hover {
+  .autumn #top-nav .nav-menu > li:hover {
     background: oklch(0.3861 0.1228 28.62);
+  }
+  .autumn #top-nav .nav-menu > li:hover > a {
+    color: oklch(98.5% 0 0);
   }
   .autumn #top-nav ul li ul li:hover,
 .autumn #top-nav ul li ul li a:hover {
@@ -2565,7 +2565,7 @@ footer:after {
     width: unset;
     margin-right: unset;
     padding-right: 1rem;
-    border-right: 1px solid oklch(91.586% 0.006 53.44);
+    border-right: 1px solid oklch(44.2% 0.017 285.786);
   }
   .autumn .items.show #content #primary > * {
     position: sticky;
