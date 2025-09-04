@@ -1,6 +1,6 @@
 </div><!-- end content -->
+    <div class="logo"></div>
 </div><!--end wrap-->
-<div class="logo"></div>
 <footer role="contentinfo">
     <div class="footer_container">
  <div class="footer_logo">
@@ -17,11 +17,11 @@
             <a href="https://dhil.lib.sfu.ca">
              <img src="<?php echo img('DHIL.png') ?>"></img>
             </a>
-           
+
         </div>
     </div>
     </div>
-   
+
 
      <?php fire_plugin_hook('public_footer', array('view' => $this)); ?>
 </footer>
