@@ -1,6 +1,13 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 
-<h1><?php echo metadata('item', 'rich_title', array('no_escape' => true)); ?></h1>
+<div class="header">
+ <!-- If the item belongs to a collection, the following creates a link to that collection. -->
+    <?php if (metadata('item', 'Collection Name')): ?>
+        <p><?php echo link_to_collection_for_item(); ?></p>
+    <?php endif; ?>
+    <h1><?php echo metadata('item', 'rich_title', array('no_escape' => true)); ?></h1>
+</div>
+
 
 <div id="primary">
 
