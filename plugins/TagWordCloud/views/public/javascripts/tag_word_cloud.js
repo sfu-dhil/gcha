@@ -17,6 +17,7 @@ jQuery(() => {
     }
 
     const chart = echarts.init(tagWordCloudEl)
+    const resizeObserver = new ResizeObserver(chart.resize).observe(tagWordCloudEl);
     chart.setOption({
         series: [{
             type: 'wordCloud',
@@ -78,11 +79,4 @@ jQuery(() => {
         }]
     })
     chart.on('click', params => window.location.href = `/items/browse?tags=${encodeURIComponent(params.name)}`)
-    let currentWidth = jQuery(window).width()
-    addEventListener('resize', () => {
-        if (currentWidth != jQuery(window).width()) {
-            currentWidth = jQuery(window).width()
-            chart.resize()
-        }
-    })
 })
