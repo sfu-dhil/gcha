@@ -2829,3 +2829,13 @@ footer:after {
     padding: 0;
   }
 }
+/* universal viewer fixes */
+.uv .btn-default {
+  background-color: #565656 !important;
+}
+.uv .btn.imageBtn {
+  background-color: transparent !important;
+}
+.uv .btn.imageBtn.gallery {
+  padding: 5px 2px !important;
+}
