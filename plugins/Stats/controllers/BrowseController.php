@@ -192,11 +192,13 @@ class Stats_BrowseController extends Omeka_Controller_AbstractActionController
                 }
             }
         } else {
-            foreach ($hitsPerCollection as $collectionId => $hits) {
-                $collection = $db->getTable('Collection')->findById($collectionId);
+            $collections = $db->getTable('Collection')->findAll();
+            foreach ($collections as $collection) {
+                $hitsInclusive = isset($hitsPerCollection[$collection->id]) ? $hitsPerCollection[$collection->id] : 0;
                 $results[] = [
                     'collection' => metadata($collection, ['Dublin Core', 'Title']),
-                    'hits' => $hits,
+                    'hits' => isset($hitsPerCollection[$collection->id]) ? $hitsPerCollection[$collection->id] : 0,
+                    'hitsInclusive' => $hitsInclusive,
                 ];
             }
         }
