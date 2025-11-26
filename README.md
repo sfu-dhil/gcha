@@ -1,3 +1,6 @@
+[![Docker Image Latest Badge](https://ghcr-badge.egpl.dev/sfu-dhil/gcha/latest_tag?trim=major&label=latest)](https://github.com/sfu-dhil/gcha/pkgs/container/gcha)
+[![Docker Image Size badge](https://ghcr-badge.egpl.dev/sfu-dhil/gcha/size)](https://github.com/sfu-dhil/gcha/pkgs/container/gcha)
+
 # Grassroots Chinese History Archive
 
 The Grassroots Chinese History Archive (GCHA) aims to facilitate research by scholars worldwide in modern Chinese history, with a focus on the social, political, and cultural history of China's 1950s, 1960s, and 1970s.

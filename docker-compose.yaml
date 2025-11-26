@@ -34,6 +34,7 @@ services:
 
   app:
     container_name: gcha_app
+    # image: ghcr.io/sfu-dhil/gcha
     build:
       context: .
     ports:
