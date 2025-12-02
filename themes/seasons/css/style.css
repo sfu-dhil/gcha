@@ -1894,7 +1894,7 @@ nav.pagination .pagination_list .pagination_next a:after {
     background-repeat: no-repeat;
     background-position: top right;
     height: auto;
-    background-image: url(GCHA_logoFinal.png);
+    background-image: url(../images/GCHA_logoFinal.png);
     background-size: contain;
     /* margin: 0 auto; */
     padding-bottom: 2rem;

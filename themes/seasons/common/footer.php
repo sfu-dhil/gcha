@@ -4,7 +4,7 @@
 <footer role="contentinfo">
     <div class="footer_container">
  <div class="footer_logo">
-        <img src="<?php echo img('GCHA_logoFinal.png', 'css')?>"></img>
+        <img src="<?php echo img('GCHA_logoFinal.png')?>"></img>
     </div>
     <div class="footer_menu">
         <?php echo public_nav_main(); ?>
