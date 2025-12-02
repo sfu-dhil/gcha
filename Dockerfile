@@ -60,6 +60,8 @@ COPY --chown=www-data:www-data --chmod=771 docker/omeka/db.ini docker/omeka/robo
 COPY --chown=www-data:www-data --chmod=771 docker/omeka/application/config/config.ini /var/www/html/application/config/config.ini
 COPY --chown=www-data:www-data --chmod=771 themes /var/www/html/themes/
 COPY --chown=www-data:www-data --chmod=771 plugins /var/www/html/plugins/
+COPY --chown=www-data:www-data --chmod=771 docker/robots.txt /var/www/html/robots.txt
+COPY --chown=www-data:www-data --chmod=771 themes/seasons/images/favicon.ico /var/www/html/favicon.ico
 
 RUN mkdir -p application/logs \
     && touch application/logs/errors.log \
