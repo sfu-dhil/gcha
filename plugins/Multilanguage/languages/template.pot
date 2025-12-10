@@ -20,3 +20,9 @@ msgstr ""
 msgid "No tags are available."
 msgstr ""
 
+msgid "No tags are available."
+msgstr ""
+
+msgid "Privacy Policy"
+msgstr ""
+

@@ -2756,11 +2756,18 @@ footer:after {
     grid-column: 2/end;
     grid-row: 1/2;
     padding-bottom: 1rem;
+    display: flex;
   }
   .autumn footer .footer_menu ul.navigation {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
+  }
+  .autumn footer .footer_menu ul.navigation:first-child {
+    flex-grow: 5;
+  }
+  .autumn footer .footer_menu ul.navigation:nth-of-type(2) {
+    flex-grow: 1;
   }
   .autumn #top-nav {
     display: grid;

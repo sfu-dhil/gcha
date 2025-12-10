@@ -696,10 +696,17 @@ $shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         grid-column: 2 / end;
         grid-row: 1 / 2;
         padding-bottom: 1rem;
+        display: flex;
         ul.navigation {
           flex-direction: row;
           justify-content: space-around;
           align-items: flex-end;
+          &:first-child {
+            flex-grow: 5;
+          }
+          &:nth-of-type(2) {
+            flex-grow: 1;
+          }
         }
       }
     }

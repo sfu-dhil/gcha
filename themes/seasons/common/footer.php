@@ -8,6 +8,9 @@
     </div>
     <div class="footer_menu">
         <?php echo public_nav_main(); ?>
+        <ul class="navigation">
+            <li><a href="https://docs.dhil.lib.sfu.ca/privacy.html" target="_blank"><?php echo __('Privacy Policy'); ?></a></li>
+        </ul>
     </div>
     <div class="footer_sponsor">
         <div class="sshrc">
@@ -17,7 +20,6 @@
             <a href="https://dhil.lib.sfu.ca">
              <img src="<?php echo img('DHIL.png') ?>"></img>
             </a>
-
         </div>
     </div>
     </div>
