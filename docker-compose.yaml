@@ -19,7 +19,7 @@ services:
 
   gcha_solr:
     container_name: gcha_solr
-    image: solr:9.5
+    image: solr:9.11
     command: solr-precreate gcha
     ports:
      - "8983:8983"
@@ -31,6 +31,7 @@ services:
       - .data/solr:/var/solr
     environment:
       SOLR_HEAP: 500m
+      SOLR_MODULES: analysis-extras
 
   app:
     container_name: gcha_app
